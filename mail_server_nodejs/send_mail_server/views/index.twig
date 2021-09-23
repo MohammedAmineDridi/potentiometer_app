@@ -1,0 +1,86 @@
+<html>
+<html lang="en">
+ 
+ <head>
+ <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+ <style>
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    margin-left:50 ;
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }
+
+
+    #btn_export_pdf{
+          font-size: 18;
+         background-color: rebeccapurple ;
+         
+    }
+
+    #title_values{
+            padding-left: 320px;
+            color: rebeccapurple;
+    }
+
+ </style>
+
+ </head>
+
+   <body>
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+
+      <h1 id ="title_values" > Table of Analog Values </h1>
+
+      <br>
+      <br>
+
+    <div class="row col-md-6 col-md-offset-2 custyle">
+
+  
+
+    <table class="table table-striped custab">
+    <thead>
+    
+        <tr>
+    
+            <th>Analog Value</th>
+            <th>Date and Time</th>
+       
+        </tr>
+    </thead>
+     {% for value in analogValues %}
+            <tr>
+                <td> {{  value.value }}  </td>
+                <td> {{ value.date_time }}  </td>
+            </tr>
+
+    {% endfor %}      
+           
+    </table>
+
+<a id="btn_export_pdf" href="/export_pdf" class="btn btn-primary btn-xs pull-right"><b>+</b> Export Pdf Report </a>
+
+
+    </div>
+    
+</div>
+
+
+   </body>
+</html>
